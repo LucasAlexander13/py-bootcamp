@@ -30,13 +30,6 @@ scissors = '''
 
 moves = [rock, paper, scissors]
 
-player_move = int(input('Type 0 for Rock, 1 for Paper and 2 For Scissors: '))
-if player_move == 0: player_move = rock
-elif player_move == 1: player_move = paper
-elif player_move == 2: player_move = scissors
-else: print('Invalid input, you lose.')
-
-
 def results(player_input):
     def play(list):
         return choice(list)
@@ -95,19 +88,27 @@ def results(player_input):
                 sleep(1)
                 print('You won!')
 
-sleep(0.8)
-print('You play:')
-print(player_move)
-sleep(1)
-print('And the computer plays', end ='')
-sleep(0.8)
-print('.', end ='')
-sleep(0.8)
-print('.', end ='')
-sleep(0.8)
-print('.')
+replay = True
+while replay == True:
+    player_move = int(input('Type 0 for Rock, 1 for Paper and 2 for Scissors: '))
+    if player_move == 0: player_move = rock
+    elif player_move == 1: player_move = paper
+    elif player_move == 2: player_move = scissors
+    else: print('Invalid input, you lose.')
 
-if player_move in moves:
-    results(player_move)
-else:
-    print('Better luck next time.')
+    sleep(0.8); print(f'You play:\n{player_move}')
+    sleep(1); print('And the computer plays', end ='')
+    sleep(0.8); print('.', end ='')
+    sleep(0.8); print('.', end ='')
+    sleep(0.8); print('.')
+
+    if player_move in moves:
+        results(player_move)
+    else:
+        print('Better luck next time.')
+
+    replay = input('\nDo you want to play again? Type 1 for Yes: ')
+    if replay == '1':
+        replay = True
+    else:
+        replay = False
