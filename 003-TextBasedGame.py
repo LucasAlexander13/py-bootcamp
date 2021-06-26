@@ -6,6 +6,9 @@ The main ideia is to develop a text-based game, with three routes.
 however, I decided to create a larger game, with attributes and dice rolls.
 My inspiration was to create something old school for my sister to play.
 That said, the game's dialogues will be in Portuguese.
+
+Disclaimer: this will be a mess, because I am not trying to make a clean 
+code, but a cool game that my sister can enjoy and be proud of.
 '''
 
 '''Attributes'''
@@ -19,8 +22,17 @@ charm = 0
 brain = 0
 
 def dice_roll(attribute):
+    if attribute < 0:
+        print(f'\nRolando 2d6 {attribute}', end = '')
+    else:
+        print(f'\nRolando 2d6 +{attribute}', end = '')
+    sleep(0.8); print('.', end='')
+    sleep(0.8); print('.', end='') 
+    sleep(0.8); print('.')
     result = randint(1, 6) + randint(1, 6) + attribute
-    print(f'Você rolou {result - attribute} + {attribute}')
+    sleep(1); print(f'Você rolou {result}.')
+    if result >= 12:
+        print('Um sucesso crítico!')
     return result
 
 print('Após dias de viagem ', end=''); sleep(2); 
@@ -54,8 +66,12 @@ print('''
  \_/__________________________________________________________________/
 ''')
 sleep(3); print('A Ilha do Tesouro Perdido.\n\n')
-
-print('Mas... ', end=''); sleep(2); print('Quem é você?')
+sleep(2)
+print('Mas', end='')
+sleep(0.8); print('.', end='')
+sleep(0.8); print('.', end='') 
+sleep(0.8); print('.', end='')
+sleep(0.8); print(' Quem é você?')
 sleep(2); print('0 - Um charlatão que conquistou o mapa em uma aposta.')
 sleep(2); print('1 - Um nobre soldado à serviço de um rei em uma expedição.')
 sleep(2); print('2 - Um estudioso historiador que investiga mitos antigos.')
@@ -66,18 +82,20 @@ sleep(2); print('3 - Um viajante destemido que recebeu este mapa de seu avô.')
 player_playbook = int(input('Digite o número de seu personagem: '))
 
 if player_playbook == 0:
-    style = 2; power = 0; charm = 1; brain = -1
+    style = 3; power = 0; charm = 1; brain = -1
 elif player_playbook == 1:
-    style = 0; power = 2; charm = -1; brain = 1
+    style = 0; power = 3; charm = -1; brain = 1
 elif player_playbook == 2:
-    style = 1; power = -1; charm = 0; brain = 2
+    style = 1; power = -1; charm = 0; brain = 3
 elif player_playbook == 3:
-    style = -1; power = 1; charm = 2; brain = 0
+    style = -1; power = 1; charm = 3; brain = 0
 else:
+    player_playbook = 7
     print('Que misterioso, espero que tenha sorte em sua jornada.')
-    style = 0; power = 0; charm = 0; brain = 0; luck = 3
+    style = 1; power = 1; charm = 1; brain = 1
 
 
 #algoritm for dice rolls
-if dice_roll(style) >= 5:
-    print('this will be printed')
+if dice_roll(style) >= 7:
+    print('A primeira rolagem foi um sucesso')
+
