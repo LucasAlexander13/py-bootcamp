@@ -11,29 +11,30 @@ in the chosen_word.
 word_list = ['dinosaur', 'spider', 'github', 'airplane', 'volcano']
 chosen_word = choice(word_list)
 letter_list = []
-hangman = ''
+display = ''
 lives = 5
 victory = 0
 
 for letter in chosen_word:
-    hangman += '_'
+    display += '_'
 
 while lives != 0 and victory != 1:
-    print(hangman)
+    print(display.replace('', ' ')[1:-1].upper())
     guess = input('\nGuess a letter: ').lower()
 
     if guess in letter_list:
-        print('That letter was already tried, try another.\n')
+        print(f'"{guess}" was already tried, try another one.\n')
 
     elif guess in chosen_word:
         for position in range(len(chosen_word)):
             if chosen_word[position] == guess:
                 letter_list.append(guess)
 
-                hangman = hangman[:position] + guess + hangman[position + 1:]
+                display = display[:position] + guess + display[position + 1:]
 
-                if hangman == chosen_word:
-                    print(f'You won the game. The word was: {chosen_word}.\n')
+                if display == chosen_word:
+                    print(display.replace('', ' ')[1:-1].upper())
+                    print(f'\nYou won the game. The word was: {chosen_word}.\n')
                     victory = 1
     else:
         print(f'"{guess}" is not in the chosen word.\n')
