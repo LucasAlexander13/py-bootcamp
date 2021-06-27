@@ -260,6 +260,4 @@ windows
 wireless
 workstation
 xml
-zip
-'''.split('\n')
-print(word_list)
+zip'''.split('\n')
