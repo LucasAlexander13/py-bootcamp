@@ -34,6 +34,7 @@ def results(player_input):
     def play(list):
         return choice(list)
     computer_play = play(moves)
+
     if player_input == computer_play:
         sleep(1)
         print(computer_play)
@@ -57,6 +58,7 @@ def results(player_input):
                 print('Rock crushes scissors.')
                 sleep(1)
                 print('You won!')
+                
         elif player_input == paper:
             if computer_play == scissors:
                 sleep(1)
@@ -72,6 +74,7 @@ def results(player_input):
                 print('Paper covers rock.')
                 sleep(1)
                 print('You won!')
+
         elif player_input == scissors:
             if computer_play == rock:
                 sleep(1)
@@ -91,9 +94,13 @@ def results(player_input):
 replay = True
 while replay == True:
     player_move = int(input('Type 0 for Rock, 1 for Paper and 2 for Scissors: '))
-    if player_move == 0: player_move = rock
-    elif player_move == 1: player_move = paper
-    elif player_move == 2: player_move = scissors
+    
+    if player_move == 0: 
+        player_move = rock
+    elif player_move == 1: 
+        player_move = paper
+    elif player_move == 2: 
+        player_move = scissors
     else: print('Invalid input, you lose.')
 
     sleep(0.8); print(f'You play:\n{player_move}')
