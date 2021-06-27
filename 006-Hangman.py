@@ -1,4 +1,6 @@
 from random import choice
+from hangman_words import word_list
+from hangman_art import *
 
 '''
 Randomly choose a word from the word_list and assign it to a 
@@ -8,17 +10,19 @@ Check if the letter the user guessed (guess) is one of the letters
 in the chosen_word.
 '''
 
-word_list = ['dinosaur', 'spider', 'github', 'airplane', 'volcano']
 chosen_word = choice(word_list)
 letter_list = []
 display = ''
-lives = 5
+lives = 6
 victory = 0
 
 for letter in chosen_word:
     display += '_'
 
+print(computer, logo)
+
 while lives != 0 and victory != 1:
+    print(stages[lives])
     print(display.replace('', ' ')[1:-1].upper())
     guess = input('\nGuess a letter: ').lower()
 
@@ -37,9 +41,10 @@ while lives != 0 and victory != 1:
                     print(f'\nYou won the game. The word was: {chosen_word}.\n')
                     victory = 1
     else:
+        
         print(f'"{guess}" is not in the chosen word.\n')
         letter_list.append(guess)
-        
         lives -= 1
         if lives == 0:
+            print(stages[0])
             print(f'Out of lives. The word was: {chosen_word}.\n')
