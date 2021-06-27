@@ -19,7 +19,7 @@ victory = 0
 for letter in chosen_word:
     display += '_'
 
-print(computer, logo)
+print(computer, hangman, keyboard)
 
 while lives != 0 and victory != 1:
     print(stages[lives])
