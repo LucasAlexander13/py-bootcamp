@@ -13,7 +13,7 @@ in the chosen_word.
 chosen_word = choice(word_list)
 letter_list = []
 display = ''
-lives = 6
+lives = 10
 victory = 0
 
 for letter in chosen_word:
@@ -22,7 +22,12 @@ for letter in chosen_word:
 print(computer, hangman, keyboard)
 
 while lives != 0 and victory != 1:
-    print(stages[lives])
+    if lives >= 6:
+        print(stages[6])
+    else:
+        if lives == 5:
+            print('No more free lives.')
+        print(stages[lives])
     print(display.replace('', ' ')[1:-1].upper())
     guess = input('\nGuess a letter: ').lower()
 

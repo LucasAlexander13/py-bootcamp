@@ -86,6 +86,8 @@ frame
 framework
 freeware
 gigabyte
+git
+github
 google
 gpu
 graphics
