@@ -1,6 +1,6 @@
 '''
 Write a program that call a function called greet and 
-that prints three lines of greetings to the user.
+that prints three lines of greetings to the user.  
 '''
 
 def greet():
