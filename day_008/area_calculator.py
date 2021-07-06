@@ -1,4 +1,4 @@
-from random import randint
+from math import ceil
 
 '''
 You are painting a wall. The instructions on the paint can 
@@ -9,6 +9,9 @@ how many cans of paint you'll need to buy.
 
 def area_calc(height, width):
     total_can = (height * width) / 5
-    return print(f'{total_can}')
+    return print(f'You will need {ceil(total_can)} cans of paint.')
 
-area_calc(randint(1, 10), randint(1, 10))
+wall_height = float(input('Enter the height of the wall: '))
+wall_width = float(input('Enter the width: '))
+
+area_calc(wall_height, wall_width)
