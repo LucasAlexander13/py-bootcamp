@@ -13,11 +13,14 @@ travel_log = [
 #Do NOT change the code above
 
 #TODO: Write the function that will allow new countries
-#to be added to the travel_log. 👇
+#to be added to the travel_log.
 
-
-
-
+def add_new_country(country, visits, cities):
+    travel_log.append({
+        "country": country,
+        "visits": visits,
+        "cities": cities,
+        })
 
 #Do not change the code below
 add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
