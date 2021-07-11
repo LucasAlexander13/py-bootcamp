@@ -23,8 +23,9 @@ def days_in_month(year, month):
     if is_leap(year):
         month_days['February'] = 29
     
-    month = month_days[month]
-    return month
+    days = month_days[month]
+
+    return f'{month} has {days} days in {year}'
 
 year = int(input('Enter a year: '))
 month = input('Enter a month: ').title()
