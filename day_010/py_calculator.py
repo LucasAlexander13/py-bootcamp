@@ -38,4 +38,19 @@ l_number = int(input('Enter another number: '))
 operation = operations[symbol]
 answer = operation(f_number, l_number)
 
-print(f'\n{f_number} {symbol} {l_number} = {answer}')
+print(f'\n{f_number} {symbol} {l_number} = {answer}\n')
+
+while True:
+    replay = input(f'Type "y" to continue calculating with {answer}: ')
+    if replay.lower() != 'y':
+        break
+
+    symbol = input('\nPick an operation: ')
+    o_number = int(input('Enter another number: '))
+
+    operation = operations[symbol]
+    new_answer = operation(answer, o_number)
+
+    print(f'\n{answer} {symbol} {o_number} = {new_answer}\n')
+
+    answer = new_answer
