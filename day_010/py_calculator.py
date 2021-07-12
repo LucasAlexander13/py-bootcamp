@@ -14,3 +14,28 @@ logo = """
 | |___|___|___| |___| |  '----------------'  '----------------'  '----------------'  '----------------' 
 |_____________________|
 """
+
+def sum(a, b): return a + b
+def subtraction(a, b): return a - b
+def multiply(a, b): return a * b
+def division(a, b): return a / b
+def power(a, b): return a ** b
+
+operations = {
+    '+': sum,
+    '-': subtraction,
+    '*': multiply,
+    '/': division,
+    '^': power
+}
+
+print(logo)
+
+f_number = int(input('Enter a number: '))
+symbol = input('Enter an operation: ')
+l_number = int(input('Enter another number: '))
+
+operation = operations[symbol]
+answer = operation(f_number, l_number)
+
+print(f'\n{f_number} {symbol} {l_number} = {answer}')
