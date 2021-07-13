@@ -1,13 +1,6 @@
 from random import randint
 from game_art import *
 
-def result(guess, number):
-    if guess == number:
-        print('You did it.')
-    elif guess > number:
-        print(high)
-        attempts -= 1
-
 print(logo)
 print('Welcome to the Number Guessing Game!')
 
@@ -27,17 +20,21 @@ while guessing:
 
     if guess == number:
         print(f'You got it! The number was {number}')
+        print(win)
         guessing = False
+
     elif guess < number:
         print(low)
-        print('Guess again.\n')
         attempts -= 1
+        
     elif guess > number:
         print(high)
-        print('Guess again.\n')
         attempts -= 1
     
     if attempts == 0:
-        print('You\'ve run out of guesses, you lose.')
+        print('You\'ve run out of guesses...')
+        print(lose)
         guessing = False
+    else:
+        print('Guess again.\n')
     
