@@ -33,7 +33,7 @@ def days_in_month(year, month):
     
     days = month_days[month]
 
-    return f'{month} has {days} days in {year}'
+    return f'{month} has {days} days in {year}.'
 
 year = int(input('Enter a year: '))
 month = input('Enter a month: ').title()

@@ -28,6 +28,7 @@ operations = {
     '+': sum,
     '-': subtraction,
     'x': multiply,
+    '*': multiply,
     '/': division,
     '^': power,
     '%': remainder,
@@ -47,11 +48,11 @@ answer = operation(f_number, l_number)
 print(f'\n{f_number} {symbol} {l_number} = {answer}\n')
 
 while True:
-    replay = input(f'Type "y" to continue calculating with {answer}: ')
+    replay = input(f'Type \'y\' to continue calculating with {answer}: ')
     if replay.lower() != 'y':
         break
 
-    symbol = input('\nPick an operation: ')
+    symbol = input('Pick an operation: ')
     o_number = int(input('Enter another number: '))
 
     operation = operations[symbol]
