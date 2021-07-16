@@ -65,5 +65,6 @@ def refill():
     resources["coffee"] = 100
 
 while True:
+    print(logo)
     order = input('\nWhat would you like? (espresso, latte, cappuccino): ')
     request(order.lower())
