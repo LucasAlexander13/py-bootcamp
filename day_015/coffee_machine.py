@@ -9,8 +9,8 @@ def request(order):
         return print('No enough resources')
 
 def check(coffee):
-    for ingredient in MENU[coffee]['ingredients']:
-        if resources[ingredient] < MENU[coffee][ingredient]:
+    for type in MENU[coffee]['ingredients']:
+        if resources[type] < MENU[coffee]['ingredients'][type]:
             return False
     return True
 
@@ -37,16 +37,16 @@ def make(coffee, money):
         return print('You are out of cash.')
     else:
         change(coffee, money)
-    for ingredient in MENU[coffee]['ingredients']:
-        resources[ingredient] -= MENU[coffee][ingredient]
+    for type in MENU[coffee]['ingredients']:
+        resources[type] -= MENU[coffee]['ingredients'][type]
     return print(f'Here is your {coffee}, enjoy!')
 
 def report():
     for type in resources:
         if type == 'coffee':
-            print(f'{type}: {resources["type"]}g')
+            print(f'{type}: {resources[type]}g')
         else:
-            print(f'{type}: {resources["type"]}ml')
+            print(f'{type}: {resources[type]}ml')
     print(f'Money: ${machine_money:.2f}')
 
 while True:
