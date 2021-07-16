@@ -3,10 +3,13 @@ from machine_resources import *
 def request(order):
     if order == 'report':
         report()
-    elif check(order):
-        make(order, get_money())
+    if order in MENU:
+        if check(order):
+            make(order, get_money())
+        else:
+            return print('No enough resources')
     else:
-        return print('No enough resources')
+        print('Invalid input. Try again.')
 
 def check(coffee):
     for type in MENU[coffee]['ingredients']:
