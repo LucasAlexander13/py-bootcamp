@@ -1,15 +1,22 @@
 from machine_resources import *
+from os import system
+
+def clear():
+    return system('cls')
 
 def request(order):
+    clear()
     if order == 'report':
         report()
-    if order in MENU:
+    elif order == 'refill':
+        refill()
+    elif order in MENU:
         if check(order):
             make(order, get_money())
         else:
             return print('No enough resources')
     else:
-        print('Invalid input. Try again.')
+        print('Invalid input. Try again.')  
 
 def check(coffee):
     for type in MENU[coffee]['ingredients']:
@@ -52,6 +59,11 @@ def report():
             print(f'{type}: {resources[type]}ml')
     print(f'Money: ${machine_money:.2f}')
 
+def refill():
+    resources["water"] = 300
+    resources["milk"] = 200
+    resources["coffee"] = 100
+
 while True:
-    order = input('What would you like? (espresso, latte, cappuccino): ')
+    order = input('\nWhat would you like? (espresso, latte, cappuccino): ')
     request(order.lower())
