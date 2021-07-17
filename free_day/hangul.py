@@ -58,5 +58,6 @@ while True:
             clear(1)
         else:
             print(f'You missed. You final score was {score} points.')
+            print(f'{char} = {hangul[char].title()}. Type Enter to restart: ', end='')
+            input()
             studying = False
-            clear(3)
