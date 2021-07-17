@@ -1,6 +1,7 @@
 from random import choice
 from os import system
 from time import sleep
+from art_variables import hangul_study
 
 def clear(time):
     sleep(time)
@@ -38,15 +39,18 @@ hangul = {
 }
 
 while True:
-    clear(1)
+    clear(0.5)
     studying = True; score = 0
+    print(hangul_study)
     name = input('Enter your name: ').title()
+    clear(0.5)
     
     if name == 'None':
         break
 
     while studying:
         char = choice(list(hangul))
+        print(hangul_study)
         print(f'Current score: {score} points')
         if input(f'{char}: ').upper() == hangul[char]:
             print(f'Very good, {name}!')
@@ -55,4 +59,4 @@ while True:
         else:
             print(f'You missed. You final score was {score} points.')
             studying = False
-            clear(2)
+            clear(3)
