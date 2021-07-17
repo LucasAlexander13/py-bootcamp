@@ -1,4 +1,10 @@
 from random import choice
+from os import system
+from time import sleep
+
+def clear(time):
+    sleep(time)
+    system('cls')
 
 hangul = {
     'ㅏ': 'A',
@@ -32,6 +38,7 @@ hangul = {
 }
 
 while True:
+    clear(1)
     studying = True; score = 0
     name = input('Enter your name: ').title()
     
@@ -40,10 +47,12 @@ while True:
 
     while studying:
         char = choice(list(hangul))
-
+        print(f'Current score: {score} points')
         if input(f'{char}: ').upper() == hangul[char]:
             print(f'Very good, {name}!')
             score += 1
+            clear(1)
         else:
             print(f'You missed. You final score was {score} points.')
             studying = False
+            clear(2)
