@@ -1,3 +1,5 @@
+from random import choice
+
 hangul = {
     'ㅏ': 'A',
     '아': 'A',
@@ -28,3 +30,20 @@ hangul = {
     'ㅒ': 'YÉ',
     '얘': 'YÉ',
 }
+
+while True:
+    studying = True; score = 0
+    name = input('Enter your name: ').title()
+    
+    if name == 'None':
+        break
+
+    while studying:
+        char = choice(list(hangul))
+
+        if input(f'{char}: ').upper() == hangul[char]:
+            print(f'Very good, {name}!')
+            score += 1
+        else:
+            print(f'You missed. You final score was {score} points.')
+            studying = False
