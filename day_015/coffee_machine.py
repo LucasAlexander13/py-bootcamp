@@ -63,8 +63,8 @@ def refill():
     resources["water"] = 300
     resources["milk"] = 200
     resources["coffee"] = 100
+    return print('Successfully stocked coffee machine.')
 
 while True:
-    print(logo)
-    order = input('\nWhat would you like? (espresso, latte, cappuccino): ')
+    order = input('What would you like? (espresso, latte, cappuccino): ')
     request(order.lower())
