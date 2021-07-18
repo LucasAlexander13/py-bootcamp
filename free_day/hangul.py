@@ -31,7 +31,7 @@ def get_hangul(score):
             revised.append(char)
         return char
 
-def level(score):
+def get_level(score):
     if score <= 10:
         return 'training'
     elif score <= 20:
@@ -121,7 +121,7 @@ while True:
         print(f'Current score: {score} points')
 
         char = get_hangul(score)
-        current = hangul[level(score)][char]
+        current = hangul[get_level(score)][char]
 
         if input(f'{char}: ').upper() in current:
             print(f'Very good, {name}!')
