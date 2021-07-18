@@ -16,6 +16,7 @@ def get_hangul(score):
         return char
     elif score <= 30:
         char = choice(list(hangul['normal']))
+        return char
 
 def level(score):
     if score <= 10:
