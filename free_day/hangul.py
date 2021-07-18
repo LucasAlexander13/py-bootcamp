@@ -7,36 +7,49 @@ def clear(time):
     sleep(time)
     system('cls')
 
+
 hangul = {
-    'ㅏ': 'A',
-    '아': 'A',
-    'ㅓ': 'Ó',
-    '어': 'Ó',
-    'ㅗ': 'O',
-    '오': 'O',
-    'ㅜ': 'U',
-    '우': 'U',
-    'ㅔ': 'E',
-    '에': 'E',
-    'ㅐ': 'É',
-    '애': 'É',
-    'ㅡ': 'UH',
-    '으': 'UH',
-    'ㅣ': 'I',
-    '이': 'I',
-    'ㅑ': 'YA',
-    '야': 'YA',
-    'ㅕ': 'YÓ',
-    '여': 'YÓ',
-    'ㅛ': 'YO',
-    '요': 'YO',
-    'ㅠ': 'YU',
-    '유': 'YU',
-    'ㅖ': 'YE',
-    '예': 'YE',
-    'ㅒ': 'YÉ',
-    '얘': 'YÉ',
+    'training': { # 10 points
+        'ㅏ': 'A',
+        'ㅓ': 'Ó',
+        'ㅗ': 'O',
+        'ㅜ': 'U',
+        'ㅡ': 'UH',
+        'ㅣ': 'I',
+        'ㅔ': 'E',
+        'ㅐ': 'É',
+    },
+    'easy': { # 20 points
+        'ㅑ': ['YA','IA'],
+        'ㅕ': ['YÓ','IÓ'],
+        'ㅛ': ['YO','IO'],
+        'ㅠ': ['YU','IU'],
+        'ㅖ': ['YE','IE'],
+        'ㅒ': ['YÉ','IÉ'],
+    },
+    'normal': { # 30 points
+        'ㅘ': 'OA',
+        'ㅝ': 'UÓ',
+        'ㅟ': 'UI',
+        'ㅚ': 'UE',
+        'ㅞ': 'UÉ',
+        'ㅙ': 'OÉ',
+        'ㅢ': 'UHI'
+    },
+    'moderate': { # 40 points
+
+    },
+    'hard': { # 50 points
+
+    },
+    'hardest': { # 60 points
+
+    },
+    'insane': { # 70 points
+
+    }
 }
+
 
 while True:
     clear(0.5)
@@ -52,7 +65,7 @@ while True:
         char = choice(list(hangul))
         print(hangul_study)
         print(f'Current score: {score} points')
-        if input(f'{char}: ').upper() == hangul[char]:
+        if input(f'{char}: ').upper() in hangul[char]:
             print(f'Very good, {name}!')
             score += 1
             clear(1)
