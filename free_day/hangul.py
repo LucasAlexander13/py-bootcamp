@@ -5,8 +5,25 @@ from art_variables import hangul_study
 
 def clear(time):
     sleep(time)
-    system('cls')
+    return system('cls')
 
+def get_hangul(score):
+    if score <= 10:
+        char = choice(list(hangul['training']))
+        return char
+    elif score <= 20:
+        char = choice(list(hangul['easy']))
+        return char
+    elif score <= 30:
+        char = choice(list(hangul['normal']))
+
+def level(score):
+    if score <= 10:
+        return 'training'
+    elif score <= 20:
+        return 'easy'
+    elif score <= 30:
+        return 'normal'
 
 hangul = {
     'training': { # 10 points
@@ -16,10 +33,11 @@ hangul = {
         'ㅜ': 'U',
         'ㅡ': 'UH',
         'ㅣ': 'I',
-        'ㅔ': 'E',
-        'ㅐ': 'É',
+
     },
     'easy': { # 20 points
+        'ㅔ': 'E',
+        'ㅐ': 'É',
         'ㅑ': ['YA','IA'],
         'ㅕ': ['YÓ','IÓ'],
         'ㅛ': ['YO','IO'],
@@ -53,24 +71,29 @@ hangul = {
 
 while True:
     clear(0.5)
-    studying = True; score = 0
     print(hangul_study)
     name = input('Enter your name: ').title()
-    clear(0.5)
     
     if name == 'None':
         break
+    else:
+        score = 0
+        clear(0.5)
 
-    while studying:
-        char = choice(list(hangul))
+    while True:
         print(hangul_study)
         print(f'Current score: {score} points')
-        if input(f'{char}: ').upper() in hangul[char]:
+
+        char = get_hangul(score)
+        current = hangul[level(score)][char]
+
+        if input(f'{char}: ').upper() in current:
             print(f'Very good, {name}!')
             score += 1
             clear(1)
         else:
             print(f'You missed. You final score was {score} points.')
-            print(f'{char} = {hangul[char].title()}. Type Enter to restart: ', end='')
+            print(f'You are in {level(score)} level.')
+            print(f'{char} = {current}. Type Enter to restart: ', end='')
             input()
-            studying = False
+            break
