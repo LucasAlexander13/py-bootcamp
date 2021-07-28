@@ -15,13 +15,12 @@ class Question():
         self.text  = text
         self.answer = answer
 
-    def compare(self, score, iteration):
+    def compare(self):
         if  input('True or False?: ').title() ==  self.answer:
-            print('You got it right!')
+            print('\nYou got it right!')
             print(f'The correct answer was: {self.answer}')
-            print('You current score is {score}/{iteration}')
-
+            return True
         else:
-            print('That\'s wrong.')
+            print('\nThat\'s wrong.')
             print(f'The correct answer was: {self.answer}')
-            print('You current score is {score}/{iteration}')
+            return False
