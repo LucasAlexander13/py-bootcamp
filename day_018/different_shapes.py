@@ -3,17 +3,17 @@ from turtle import Screen, Turtle
 tim = Turtle()
 screen = Screen()
 tim.shape('turtle')
-tim.speed('slowest')
+tim.speed('slow')
+tim.color('dark green', 'green')
 
-intern_angle = 60
-shape_angle = 180 - intern_angle
 shape_side = 3
+shape_angle = 360 / shape_side
 
-for shapes in range(8):
+for shapes in range(7):
+
     for sides in range(shape_side):
-        tim.forward(30)
+        tim.forward(50)
         tim.right(shape_angle)
+
     shape_side += 1
-    intern_angle += 30
-    shape_angle = 180 - intern_angle
-        
+    shape_angle = 360 / shape_side
