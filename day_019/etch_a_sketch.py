@@ -19,10 +19,10 @@ def clear_screen(): #c key
     tim.reset()
 
 screen.listen()
-screen.onkey(key='w', fun=move_forward)
-screen.onkey(key='s', fun=move_backward)
-screen.onkey(key='d', fun=turn_right)
-screen.onkey(key='a', fun=turn_left)
-screen.onkey(key='c', fun=clear_screen)
+screen.onkey(move_forward, 'w')
+screen.onkey(move_backward, 's')
+screen.onkey(turn_right, 'd')
+screen.onkey(turn_left, 'a')
+screen.onkey(clear_screen,'c')
 
 screen.exitonclick()
