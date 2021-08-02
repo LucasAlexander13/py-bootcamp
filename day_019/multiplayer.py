@@ -34,6 +34,5 @@ bug.color(color[9])
 bug.penup()
 bug.setposition(-230, -60)
 
+guess = screen.textinput('Make your bet',  'Which turtle will win the run?: ')
 screen.exitonclick()
-
-
