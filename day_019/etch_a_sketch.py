@@ -1,22 +1,29 @@
 from turtle import Turtle, Screen
+from color import color
+from random import choice
 
 tim = Turtle()
+tim.shape('arrow')
+tim.pen(pensize=10)
 screen  = Screen()
 
 def move_forward(): #w key
-    tim.forward(15)
+    tim.color(choice(color))
+    tim.forward(30)
 
 def move_backward(): #s key
-    tim.backward(15)
+    tim.color(choice(color))
+    tim.backward(30)
 
 def turn_right(): #d key
-    tim.right(15)
+    tim.right(30)
 
 def turn_left(): #a key
-    tim.left(15)
+    tim.left(30)
 
 def clear_screen(): #c key
     tim.reset()
+    tim.pen(pensize=10)
 
 screen.listen()
 screen.onkey(move_forward, 'w')
