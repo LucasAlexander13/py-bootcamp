@@ -80,14 +80,14 @@ hangul = {
         'ㅝ': ['UÓ'],
         'ㅟ': ['UI'],
         'ㅚ': ['UE'],
-        'ㅞ': ['UÉ'],
+        'ㅞ': ['UE'],
         'ㅙ': ['OÉ'],
         'ㅢ': ['UHI'],
         '와': ['OA'],
         '워': ['UÓ'],
         '위': ['UI'],
         '외': ['UE'],
-        '웨': ['UÉ'],
+        '웨': ['UE'],
         '왜': ['OÉ'],
         '의': ['UHI']
     },
@@ -137,7 +137,7 @@ while True:
     print(hangul_study)
     name = input('Enter your name: ').title()
     
-    if name == 'None':
+    if name == '':
         break
     else:
         score = 0
