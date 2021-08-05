@@ -38,6 +38,8 @@ def get_level(score):
         return 'easy'
     elif score <= 30:
         return 'normal'
+    elif score <= 40:
+        return 'moderate'
 
 hangul = {
     'training': { # 10 points
@@ -90,7 +92,13 @@ hangul = {
         '의': ['UHI']
     },
     'moderate': { # 40 points
-
+        'ㄱ': ['K'],
+        'ㄴ': ['N'],
+        'ㄷ': ['T'],
+        'ㄹ': ['R'],
+        'ㅁ': ['M'],
+        'ㅂ': ['B'],
+        'ㅅ': ['S']
     },
     'hard': { # 50 points
 
@@ -102,7 +110,6 @@ hangul = {
 
     }
 }
-
 
 while True:
     clear(0.5)
