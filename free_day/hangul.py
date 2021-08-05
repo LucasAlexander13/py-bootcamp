@@ -30,6 +30,20 @@ def get_hangul(score):
         else:
             revised.append(char)
         return char
+    elif score <= 40:
+        char = choice(list(hangul['moderate']))
+        if char in revised:
+            char = get_hangul(score)
+        else:
+            revised.append(char)
+        return char
+    elif score <= 50:
+        char = choice(list(hangul['hard']))
+        if char in revised:
+            char = get_hangul(score)
+        else:
+            revised.append(char)
+        return char
 
 def get_level(score):
     if score <= 10:
@@ -40,6 +54,8 @@ def get_level(score):
         return 'normal'
     elif score <= 40:
         return 'moderate'
+    elif score <= 50:
+        return 'hard'
 
 hangul = {
     'training': { # 10 points
