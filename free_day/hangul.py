@@ -9,35 +9,35 @@ def clear(time):
 
 def get_hangul(score):
     global revised
-    if score <= 10:
+    if score <= 11:
         char = choice(list(hangul['training']))
         if char in revised:
             char = get_hangul(score)
         else:
             revised.append(char)
         return char
-    elif score <= 20:
+    elif score <= 27:
         char = choice(list(hangul['easy']))
         if char in revised:
             char = get_hangul(score)
         else:
             revised.append(char)
         return char
-    elif score <= 30:
+    elif score <= 41:
         char = choice(list(hangul['normal']))
         if char in revised:
             char = get_hangul(score)
         else:
             revised.append(char)
         return char
-    elif score <= 40:
+    elif score <= 57:
         char = choice(list(hangul['moderate']))
         if char in revised:
             char = get_hangul(score)
         else:
             revised.append(char)
         return char
-    elif score <= 50:
+    elif score <= 67:
         char = choice(list(hangul['hard']))
         if char in revised:
             char = get_hangul(score)
@@ -46,15 +46,16 @@ def get_hangul(score):
         return char
 
 def get_level(score):
-    if score <= 10:
+    '''Pega o número da pontuação e retorna o nível de conhecimento em hangul'''
+    if score <= 11:
         return 'training'
-    elif score <= 20:
+    elif score <= 27:
         return 'easy'
-    elif score <= 30:
+    elif score <= 41:
         return 'normal'
-    elif score <= 40:
+    elif score <= 57:
         return 'moderate'
-    elif score <= 50:
+    elif score <= 67:
         return 'hard'
 
 hangul = {
@@ -127,7 +128,6 @@ hangul = {
 
     },
     'hard': { # 50 points
-
         'ㄲ': ['KA'],
         'ㄸ': ['TA'],
         'ㅃ': ['PA'],
