@@ -6,3 +6,7 @@ with open('./Input/Names/invited_names.txt', 'r') as file:
 
 with open('./Input/Letters/starting_letter.txt', 'r') as file:
     letter = file.read()
+    for name in name_list:
+        invited = letter.replace('[name]', name)
+        print(invited)
+    file.close()
