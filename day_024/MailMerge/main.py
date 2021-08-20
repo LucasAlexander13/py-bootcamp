@@ -8,5 +8,7 @@ with open('./Input/Letters/starting_letter.txt', 'r') as file:
     letter = file.read()
     for name in name_list:
         invited = letter.replace('[name]', name)
-        print(invited)
+        with open(f'./Output/ReadyToSend/letter_to_{name}.txt', 'w') as done:
+            done.write(invited)
+            done.close()
     file.close()
